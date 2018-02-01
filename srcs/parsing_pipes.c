@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 18:32:43 by jebossue          #+#    #+#             */
-/*   Updated: 2017/11/01 12:51:14 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/02/01 17:44:27 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ static int		check_duplicates_links(char **split, t_list *links)
 	{
 		room1 = ((t_links*)(links_tmp->content))->room1->name;
 		room2 = ((t_links*)(links_tmp->content))->room2->name;
-		if ((!strcmp(room1, split[0])
-				&& !strcmp(room2, split[1]))
-				|| (!strcmp(room1, split[1])
-				&& !strcmp(room2, split[0])))
+		if ((!ft_strcmp(room1, split[0])
+				&& !ft_strcmp(room2, split[1]))
+				|| (!ft_strcmp(room1, split[1])
+				&& !ft_strcmp(room2, split[0])))
 			return (0);
 		links_tmp = links_tmp->next;
 	}
@@ -92,6 +92,7 @@ static int		add_links(t_list **links, t_fd *fd, t_list *rooms)
 int				parse_pipes(t_list **tab, t_list **links, t_list *rooms,
 		t_fd *fd)
 {
+		ft_printf("yo\n");
 	while (fd->line[0] == '#' || (ft_strchr(fd->line, '-')
 				&& !ft_strchr(fd->line, ' ')))
 	{

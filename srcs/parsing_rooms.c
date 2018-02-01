@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 18:32:48 by jebossue          #+#    #+#             */
-/*   Updated: 2017/11/01 13:51:27 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/02/01 17:43:43 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ static int		split_room(t_list **rooms, int room, char *line)
 		free(rm);
 		return (0);
 	}
-	rm->name = ft_strdup(split[0]);
+	if ((rm->name = ft_strdup(split[0])) == NULL)
+		return (0);
 	rm->room = room;
 	rm->ants = 0;
 	rm->listed = 0;
