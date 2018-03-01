@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 18:32:48 by jebossue          #+#    #+#             */
-/*   Updated: 2018/02/01 17:43:43 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/03/01 12:48:28 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static int		check_coords(char **split)
 	c2 = NULL;
 	while (split[i])
 		i++;
+	if (i != 3)
+		return (0);
 	if (split[1])
 		c1 = split[1];
 	if (split[2])
@@ -31,7 +33,7 @@ static int		check_coords(char **split)
 		c1++;
 	if (split[2] && (split[2][0] == '+' || split[2][0] == '-'))
 		c2++;
-	if (i != 3 || !ft_str_isdigit(c1) || !ft_str_isdigit(c2)
+	if (!ft_str_isdigit(c1) || !ft_str_isdigit(c2)
 			|| !checkintmax(split[1]) || !checkintmax(split[2]))
 		return (0);
 	return (1);
@@ -64,7 +66,8 @@ static int		split_room(t_list **rooms, int room, char *line)
 
 	if ((rm = (t_rooms*)malloc(sizeof(t_rooms))) == NULL)
 		return (0);
-	if (!(split = ft_strsplit(line, ' ')) || ft_strchr(split[0], '-')
+	split = ft_strsplit(line, ' ');
+	if (!split[0] || ft_strchr(split[0], '-')
 			|| !check_splited_room(*rooms, split))
 	{
 		free(rm);

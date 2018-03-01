@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 18:32:37 by jebossue          #+#    #+#             */
-/*   Updated: 2018/02/01 17:43:22 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/03/01 12:18:34 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static int		get_inputs(t_list **rooms, t_list **links, t_list **tab,
 			free(fd->line);
 			return (0);
 		}
-		//ERROR HERE SEG FAULT
 		if (!parse_rooms(tab, rooms, fd) ||
 				!parse_pipes(tab, links, *rooms, fd))
 			return (0);

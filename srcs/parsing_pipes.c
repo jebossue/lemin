@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 18:32:43 by jebossue          #+#    #+#             */
-/*   Updated: 2018/02/01 17:44:27 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/03/01 11:16:28 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ static int		add_links(t_list **links, t_fd *fd, t_list *rooms)
 int				parse_pipes(t_list **tab, t_list **links, t_list *rooms,
 		t_fd *fd)
 {
-		ft_printf("yo\n");
 	while (fd->line[0] == '#' || (ft_strchr(fd->line, '-')
 				&& !ft_strchr(fd->line, ' ')))
 	{
